@@ -11,12 +11,12 @@
     --radio: 1.25rem;
 }
 
+
 /* ---------- Base ---------- */
 
 html {
     scroll-behavior: smooth;
     font-size: 100%;
-    /* 16px */
 }
 
 body {
@@ -43,6 +43,7 @@ a {
 a:hover {
     color: var(--cafe);
 }
+
 
 /* ---------- Menú ---------- */
 
@@ -91,6 +92,7 @@ a:hover {
     box-shadow: 0 0 0 3px var(--rosado);
 }
 
+
 /* ---------- Botones ---------- */
 
 .btn {
@@ -130,13 +132,19 @@ a:hover {
     transform: translateY(-2px);
 }
 
+
 /* ---------- Portada ---------- */
 
 .hero {
     background:
-        radial-gradient(circle at 12% 20%, rgba(255, 255, 255, .55) 0 90px, transparent 91px),
-        radial-gradient(circle at 90% 85%, rgba(255, 122, 107, .20) 0 120px, transparent 121px),
+        radial-gradient(circle at 12% 20%,
+            rgba(255, 255, 255, .55) 0 90px,
+            transparent 91px),
+        radial-gradient(circle at 90% 85%,
+            rgba(255, 122, 107, .20) 0 120px,
+            transparent 121px),
         var(--rosado);
+
     border: 0;
     border-radius: 2rem;
     padding: 3.5rem 1.5rem;
@@ -155,6 +163,7 @@ a:hover {
     font-size: clamp(1.8rem, 4vw, 2.7rem);
 }
 
+
 /* ---------- Tarjetas de producto ---------- */
 
 .tarjeta {
@@ -172,14 +181,23 @@ a:hover {
     box-shadow: var(--sombra-fuerte);
 }
 
+
+/* Imagen del producto */
+
 .tarjeta img {
     display: block;
     width: calc(100% - 20px);
     height: 200px;
     margin: 10px;
+    padding: 10px;
+
     object-fit: contain;
+
     background: var(--rosado-claro);
+
+    /* Bordes redondeados de la imagen */
     border-radius: 1rem;
+
     transition: transform .4s;
 }
 
@@ -187,11 +205,17 @@ a:hover {
     transform: scale(1.03);
 }
 
+
+/* Precio */
+
 .precio {
     color: var(--coral);
     font-weight: 700;
     font-size: 1.1rem;
 }
+
+
+/* Producto agotado */
 
 .agotado {
     background: var(--rosado-claro);
@@ -206,6 +230,7 @@ a:hover {
 .seccion-rosa {
     background: var(--rosado-claro);
 }
+
 
 /* ---------- Formularios ---------- */
 
@@ -224,6 +249,7 @@ a:hover {
     box-shadow: 0 0 0 .25rem rgba(255, 122, 107, .2);
 }
 
+
 /* ---------- Alertas ---------- */
 
 .alert {
@@ -231,6 +257,7 @@ a:hover {
     border-radius: 1rem;
     box-shadow: var(--sombra);
 }
+
 
 /* ---------- Tablas ---------- */
 
@@ -245,6 +272,7 @@ a:hover {
     background: var(--rosado-claro);
     color: var(--cafe);
 }
+
 
 /* ---------- Pie de página ---------- */
 
@@ -273,12 +301,14 @@ small,
     font-size: .875rem;
 }
 
+
 /* ---------- Accesibilidad ---------- */
 
 :focus-visible {
     outline: 3px solid var(--coral);
     outline-offset: 2px;
 }
+
 
 /* ---------- Tablets y móviles ---------- */
 
@@ -292,6 +322,7 @@ small,
         padding: 2.5rem 1rem;
     }
 }
+
 
 /* ---------- Reducir animaciones ---------- */
 
