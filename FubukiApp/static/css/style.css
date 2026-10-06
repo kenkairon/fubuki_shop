@@ -1,4 +1,5 @@
-/* Cambia estos colores por tus códigos HEX */
+/* ---------- Colores ---------- */
+
 :root {
     --rosado: #F7B5CB;
     --rosado-claro: #FDE6EE;
@@ -10,17 +11,19 @@
     --radio: 1.25rem;
 }
 
+/* ---------- Base ---------- */
+
 html {
     scroll-behavior: smooth;
-    font-size: 112.5%;
-    /* 18 px en vez de 16 px */
+    font-size: 100%;
+    /* 16px */
 }
 
 body {
     background: var(--crema);
     color: var(--cafe);
     font-family: 'Zen Maru Gothic', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 h1,
@@ -41,7 +44,8 @@ a:hover {
     color: var(--cafe);
 }
 
-/* ---------- Menú: fijo arriba, translúcido ---------- */
+/* ---------- Menú ---------- */
+
 .navbar {
     position: sticky;
     top: 0;
@@ -50,13 +54,13 @@ a:hover {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rosado);
-    padding: .6rem 0;
+    padding: .45rem 0;
 }
 
 .navbar-brand {
     color: var(--cafe) !important;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .navbar-brand img {
@@ -66,9 +70,9 @@ a:hover {
 .navbar .nav-link {
     color: var(--cafe) !important;
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: .45rem .8rem;
-    margin: 0 .15rem;
+    font-size: 1rem;
+    padding: .4rem .7rem;
+    margin: 0 .1rem;
     border-radius: 50rem;
     transition: background .2s, color .2s;
 }
@@ -88,9 +92,10 @@ a:hover {
 }
 
 /* ---------- Botones ---------- */
+
 .btn {
     font-weight: 700;
-    padding: .6rem 1.5rem;
+    padding: .5rem 1.2rem;
     border-radius: 50rem;
     transition: transform .2s, box-shadow .2s, background .2s;
 }
@@ -126,6 +131,7 @@ a:hover {
 }
 
 /* ---------- Portada ---------- */
+
 .hero {
     background:
         radial-gradient(circle at 12% 20%, rgba(255, 255, 255, .55) 0 90px, transparent 91px),
@@ -133,23 +139,24 @@ a:hover {
         var(--rosado);
     border: 0;
     border-radius: 2rem;
-    padding: 4.5rem 1.5rem;
+    padding: 3.5rem 1.5rem;
     text-align: center;
     box-shadow: var(--sombra);
 }
 
 .hero .jp {
-    font-size: 1.1rem;
-    letter-spacing: .4em;
+    font-size: 1rem;
+    letter-spacing: .3em;
     color: var(--coral);
     font-weight: 700;
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
 }
 
 /* ---------- Tarjetas de producto ---------- */
+
 .tarjeta {
     background: #fff;
     border: 0;
@@ -180,7 +187,7 @@ a:hover {
 .precio {
     color: var(--coral);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .agotado {
@@ -188,7 +195,7 @@ a:hover {
     color: var(--cafe);
     border: 2px dashed var(--cafe);
     border-radius: 50rem;
-    padding: .4rem 1rem;
+    padding: .35rem .9rem;
     display: inline-block;
     font-weight: 700;
 }
@@ -197,12 +204,13 @@ a:hover {
     background: var(--rosado-claro);
 }
 
-/* ---------- Formularios y tablas ---------- */
+/* ---------- Formularios ---------- */
+
 .form-control,
 .form-select {
     border: 2px solid var(--rosado);
     border-radius: 1rem;
-    padding: .7rem 1rem;
+    padding: .6rem .9rem;
     background: #fff;
     color: var(--cafe);
 }
@@ -213,11 +221,15 @@ a:hover {
     box-shadow: 0 0 0 .25rem rgba(255, 122, 107, .2);
 }
 
+/* ---------- Alertas ---------- */
+
 .alert {
     border: 0;
     border-radius: 1rem;
     box-shadow: var(--sombra);
 }
+
+/* ---------- Tablas ---------- */
 
 .table {
     --bs-table-bg: #fff;
@@ -232,6 +244,7 @@ a:hover {
 }
 
 /* ---------- Pie de página ---------- */
+
 footer {
     background: var(--cafe);
     color: #fff;
@@ -254,26 +267,33 @@ footer a:hover {
 
 small,
 .small {
-    font-size: .95rem;
+    font-size: .875rem;
 }
 
 /* ---------- Accesibilidad ---------- */
+
 :focus-visible {
     outline: 3px solid var(--coral);
     outline-offset: 2px;
 }
 
+/* ---------- Tablets y móviles ---------- */
+
 @media (max-width: 991px) {
+
     .navbar .nav-link {
-        font-size: 1.05rem;
+        font-size: .95rem;
     }
 
     .hero {
-        padding: 3rem 1rem;
+        padding: 2.5rem 1rem;
     }
 }
 
+/* ---------- Reducir animaciones ---------- */
+
 @media (prefers-reduced-motion: reduce) {
+
     * {
         transition: none !important;
         scroll-behavior: auto !important;
