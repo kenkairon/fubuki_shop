@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.db import transaction
 from django.utils import timezone
+from django.utils.dateparse import parse_date
 from .models import Cliente, Pedido, LineaPedido, Producto
 
 
@@ -21,10 +22,16 @@ def crear_pedido(datos, items, fecha=None):
     if fecha and fecha < timezone.now() + timedelta(hours=settings.HORAS_ANTICIPACION):
         raise ErrorPedido("Los pedidos agendados necesitan al menos 48 horas de anticipación.")
 
-    cliente, _ = Cliente.objects.get_or_create(
+    cumple = datos.get("cumpleanos")
+    if isinstance(cumple, str):
+        cumple = parse_date(cumple) if cumple else None
+    cliente, creado = Cliente.objects.get_or_create(
         email=datos["email"],
         defaults={"nombre": datos["nombre"], "telefono": datos["telefono"],
-                  "cumpleanos": datos.get("cumpleanos")})
+                  "cumpleanos": cumple})
+    if not creado and cumple and not cliente.cumpleanos:
+        cliente.cumpleanos = cumple
+        cliente.save(update_fields=["cumpleanos"])
     prods = {p.id: p for p in Producto.objects.select_for_update()
              .filter(id__in=[int(i) for i in items], activo=True)}
     tipo = "ESP" if especial else "AGE" if fecha else "INM"

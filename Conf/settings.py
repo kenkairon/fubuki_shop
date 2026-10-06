@@ -20,13 +20,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e=gvov*5l13ajg&gd#30e8#3vr024turhu%@of8$4e^gz=cqxf'
+from pathlib import Path
+from decouple import config
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = config(
+    "SECRET_KEY",
+    default="django-insecure-clave-solo-para-desarrollo"
+)
+
+DEBUG = config("DEBUG", default=False, cast=bool)
+
+ALLOWED_HOSTS = config(
+    "ALLOWED_HOSTS",
+    default="127.0.0.1,localhost,.vercel.app",
+    
+).split(",")
 
 # Application definition
 
@@ -75,13 +86,13 @@ WSGI_APPLICATION = 'Conf.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kawaii_shop',
-        'USER': 'root',
-        'PASSWORD': 'tu contraseña',
-        'HOST': 'localhost',
-        'PORT': '3306',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD":config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT", default="3306"),
         'OPTIONS': {"charset": "utf8mb4"},
     }
 }
@@ -135,8 +146,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Reglas de la tienda
-LIMITE_UNIDADES = 50
-HORAS_ANTICIPACION = 48
-COMPRAS_PARA_DESCUENTO = 5
-PORCENTAJE_DESCUENTO = 10
+
