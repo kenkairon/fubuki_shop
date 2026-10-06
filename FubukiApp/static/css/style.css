@@ -157,14 +157,15 @@ a:hover {
 
 /* ---------- Tarjetas de producto ---------- */
 
-.tarjeta {
-    background: #fff;
-    border: 0;
-    border-radius: var(--radio);
-    overflow: hidden;
-    height: 100%;
-    box-shadow: var(--sombra);
-    transition: transform .25s, box-shadow .25s;
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    padding: 10px;
+    background: var(--rosado-claro);
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: transform .4s;
 }
 
 .tarjeta:hover {
