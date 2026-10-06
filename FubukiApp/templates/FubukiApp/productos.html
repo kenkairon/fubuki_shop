@@ -1,0 +1,4 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}<section class="container py-5"><h1 class="text-center mb-4">{{ titulo }}</h1>
+<div class="row g-4">{% for p in lista %}<div class="col-6 col-md-4 col-lg-3">{% include "FubukiApp/_tarjeta.html" %}</div>
+{% empty %}<p class="text-center">No hay {{ titulo|lower }} por ahora.</p>{% endfor %}</div></section>{% endblock %}

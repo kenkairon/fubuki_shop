@@ -1,0 +1,10 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}<section class="container py-5"><h1 class="mb-4">Tu carrito 🛒</h1>
+{% if lineas %}<table class="table align-middle"><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+{% for p, cant, sub in lineas %}<tr><td>{{ p.nombre }}</td><td>{{ cant }}</td><td>${{ sub }}</td>
+<td><a href="{% url 'quitar' p.id %}" class="btn btn-sm btn-outline-primary">Quitar</a></td></tr>{% endfor %}
+<tr><th colspan="2">Total</th><th colspan="2" class="precio">${{ total }}</th></tr></table>
+{% if unidades > 50 %}<div class="alert alert-warning">Pedidos de más de 50 unidades se coordinan con al menos 48 horas de anticipación. Elige la fecha en el siguiente paso.</div>{% endif %}
+<a href="{% url 'checkout' %}" class="btn btn-primary">Continuar (sin crear cuenta)</a>
+{% else %}<p>Tu carrito está vacío. <a href="{% url 'productos' %}">Ver productos</a></p>{% endif %}
+</section>{% endblock %}

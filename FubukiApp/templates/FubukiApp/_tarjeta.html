@@ -1,0 +1,7 @@
+<div class="tarjeta"><img src="{{ p.foto.url }}" alt="{{ p.nombre }}">
+<div class="p-3 text-center"><h5>{{ p.nombre }}</h5>
+<p class="small">{{ p.descripcion|truncatechars:70 }}</p>
+<p class="precio">${{ p.precio }}</p>
+{% if p.agotado %}<span class="agotado">Fuera de stock 売り切れ</span>
+{% else %}<a href="{% url 'agregar' p.id %}" class="btn btn-primary">Agregar ♡</a>{% endif %}
+</div></div>

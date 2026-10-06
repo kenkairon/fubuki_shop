@@ -1,0 +1,21 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}
+<section class="container py-5"><div class="hero">
+<p class="jp">かわいい · 雪 · ありがとう</p>
+<h1 class="display-5">Bienvenid@s a Fubuki 💕</h1>
+<p class="lead">Productos kawaii, promociones y pedidos a tu medida.</p>
+<a href="{% url 'productos' %}" class="btn btn-primary btn-lg">Ver productos</a></div></section>
+<section class="container py-4"><h2 class="text-center mb-4">Productos destacados ✨</h2>
+<div class="row g-4">{% for p in destacados %}<div class="col-md-4">{% include "FubukiApp/_tarjeta.html" %}</div>
+{% empty %}<p class="text-center">Agrega productos desde el panel /admin.</p>{% endfor %}</div></section>
+<section class="seccion-rosa py-5 mt-4"><div class="container"><h2 class="text-center mb-4">Promociones 🎁</h2>
+<div class="row g-4">{% for p in combos %}<div class="col-md-4">{% include "FubukiApp/_tarjeta.html" %}</div>
+{% empty %}<p class="text-center">Pronto habrá combos nuevos.</p>{% endfor %}</div>
+<div class="text-center mt-4"><a href="{% url 'promociones' %}" class="btn btn-primary">Ver todas</a></div></div></section>
+<section class="container py-5"><h2 class="text-center mb-4">Opiniones 💗</h2>
+<div class="row g-4">{% for r in resenas %}<div class="col-md-6"><div class="tarjeta p-3">
+<div>{% for i in "12345"|make_list %}{% if forloop.counter <= r.estrellas %}⭐{% endif %}{% endfor %}</div>
+<p>"{{ r.comentario }}"</p><small>{{ r.nombre }} · {{ r.producto }}</small></div></div>
+{% empty %}<p class="text-center">Aún no hay reseñas.</p>{% endfor %}</div>
+<div class="text-center mt-4"><a href="{% url 'resenas' %}" class="btn btn-outline-primary">Dejar una reseña</a></div></section>
+{% endblock %}

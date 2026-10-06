@@ -1,0 +1,9 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}<section class="container py-5" style="max-width:640px"><h1>Sugiere un producto 💡</h1>
+<p>¿Qué te gustaría ver en la tienda? Cuéntanos.</p>
+<form method="post">{% csrf_token %}
+<input class="form-control mb-3" name="nombre" placeholder="Tu nombre" required>
+<input class="form-control mb-3" name="contacto" placeholder="Correo o WhatsApp (opcional)">
+<input class="form-control mb-3" name="producto" placeholder="Producto que sugieres" required>
+<textarea class="form-control mb-3" name="detalle" placeholder="Detalles (colores, tamaño...)"></textarea>
+<button class="btn btn-primary">Enviar sugerencia</button></form></section>{% endblock %}

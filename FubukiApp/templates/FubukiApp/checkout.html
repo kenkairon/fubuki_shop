@@ -1,0 +1,16 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}<section class="container py-5" style="max-width:640px">
+<h1 class="mb-2">{% if agendar %}Agendar pedido 📅{% else %}Finalizar compra{% endif %}</h1>
+<p>No necesitas cuenta. Cada 5ª compra tiene 10% de descuento y en tu mes de cumpleaños te regalamos un producto 🎂</p>
+{% if unidades == 0 %}<p>Primero agrega productos al <a href="{% url 'productos' %}">carrito</a>.</p>{% else %}
+<form method="post">{% csrf_token %}
+<input class="form-control mb-3" name="nombre" placeholder="Nombre" required>
+<input class="form-control mb-3" type="email" name="email" placeholder="Correo" required>
+<input class="form-control mb-3" name="telefono" placeholder="Teléfono / WhatsApp" required>
+<label class="small">Cumpleaños (opcional, para tu regalo)</label>
+<input class="form-control mb-3" type="date" name="cumpleanos">
+<label class="small">Fecha de entrega{% if agendar %} (mínimo 48 h desde ahora){% else %} (solo si quieres agendar){% endif %}</label>
+<input class="form-control mb-3" type="datetime-local" name="fecha_entrega" {% if agendar %}required{% endif %}>
+<textarea class="form-control mb-3" name="notas" placeholder="Notas del pedido"></textarea>
+<button class="btn btn-primary">Confirmar pedido</button></form>{% endif %}
+</section>{% endblock %}

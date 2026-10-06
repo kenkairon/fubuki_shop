@@ -1,0 +1,7 @@
+{% extends "FubukiApp/base.html" %}
+{% block contenido %}<section class="container py-5 text-center"><h1>¡Gracias, {{ pedido.cliente.nombre }}! 🌸</h1>
+<p>Pedido #{{ pedido.id }} · {{ pedido.get_tipo_display }}</p>
+<p class="precio">Total: ${{ pedido.total }}{% if pedido.descuento %} (incluye descuento de ${{ pedido.descuento }}){% endif %}</p>
+{% if pedido.regalo_cumple %}<p>🎁 ¡Tu regalo de cumpleaños va incluido!</p>{% endif %}
+<p>Te contactaremos para coordinar el pago y la entrega.</p>
+<a href="{% url 'inicio' %}" class="btn btn-primary">Volver al inicio</a></section>{% endblock %}
