@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kawaii_shop',
         'USER': 'root',
-        'PASSWORD': 'tucontraseña',
+        'PASSWORD': 'tu contraseña',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {"charset": "utf8mb4"},
@@ -117,6 +117,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Reglas del negocio
+LIMITE_UNIDADES = 50
+HORAS_ANTICIPACION = 48
+COMPRAS_PARA_DESCUENTO = 5      # cada 5ª compra
+PORCENTAJE_DESCUENTO = 10
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

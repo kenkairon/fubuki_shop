@@ -27,7 +27,8 @@
 <div class="alert alert-{% if m.tags == 'error' %}danger{% else %}success{% endif %}">{{ m }}</div>{% endfor %}</div>
 <main>{% block contenido %}{% endblock %}</main>
 <footer class="py-5 mt-5"><div class="container"><div class="row">
-<div class="col-md-4"><h5>🎀 Fubuki 雪</h5><p>ありがとう · Gracias por visitarnos</p></div>
+<div class="col-md-4"><img src="{% static 'img/logo.png' %}" alt="Fubuki" height="60"  class="rounded-circle border border-3 shadow-sm"
+     style="object-fit: cover; border-color: #FF7A6B !important;"><p>ありがとう · Gracias por visitarnos</p></div>
 <div class="col-md-4"><h5>Contacto</h5><p><i class="bi bi-telephone"></i> +56 9 XXXX XXXX<br><i class="bi bi-envelope"></i> correo@ejemplo.com</p></div>
 <div class="col-md-4"><h5>Síguenos</h5><p><a href="#"><i class="bi bi-instagram"></i> Instagram</a><br><a href="#"><i class="bi bi-whatsapp"></i> WhatsApp</a></p></div>
 </div></div></footer>
